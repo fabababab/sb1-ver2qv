@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Plus, Download, Upload } from 'lucide-react';
 import { useSitemapStore } from '../../stores/sitemapStore';
 
 export default function SitemapToolbar() {
   const { nodes, setNodes, addNode } = useSitemapStore();
   const [showAddDialog, setShowAddDialog] = useState(false);
+
+  useEffect(() => {
+    console.log('Nodes:', nodes);
+  }, [nodes]);
 
   const handleExport = () => {
     const dataStr = JSON.stringify(nodes, null, 2);

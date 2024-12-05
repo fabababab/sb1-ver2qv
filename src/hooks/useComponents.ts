@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ComponentMeta } from '../types/component';
 
 const sampleComponents: ComponentMeta[] = [
@@ -66,6 +66,10 @@ export function useComponents() {
   const [components] = useState<ComponentMeta[]>(sampleComponents);
   const [loading] = useState(false);
   const [error] = useState<string | null>(null);
+
+  useEffect(() => {
+    console.log('Components:', components);
+  }, [components]);
 
   return {
     components,

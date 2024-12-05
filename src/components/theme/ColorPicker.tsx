@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Edit2 } from 'lucide-react';
 import { Theme } from '../../types/component';
 
@@ -14,6 +14,10 @@ export default function ColorPicker({ label, value, onChange }: ColorPickerProps
   const handleEditClick = () => {
     colorInputRef.current?.click();
   };
+
+  useEffect(() => {
+    console.log('Color value:', value);
+  }, [value]);
 
   return (
     <div className="flex-1">

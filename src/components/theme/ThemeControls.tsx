@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Palette, Type, Grid, Box, Layers, Timer, Monitor, Layout } from 'lucide-react';
 import { Theme } from '../../types/component';
 import ColorPicker from './ColorPicker';
@@ -34,6 +34,10 @@ export default function ThemeControls({ theme, onUpdate }: ThemeControlsProps) {
       }
     });
   };
+
+  useEffect(() => {
+    console.log('Theme:', theme);
+  }, [theme]);
 
   const ColorPreview = (
     <div className="space-y-4">

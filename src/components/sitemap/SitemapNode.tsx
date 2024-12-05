@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { ChevronRight, ChevronDown, Trash, Edit, GripVertical } from 'lucide-react';
@@ -25,6 +25,10 @@ export default function SitemapNode({ node, depth }: Props) {
     transition,
     marginLeft: `${depth * 1.5}rem`,
   };
+
+  useEffect(() => {
+    console.log('Node:', node);
+  }, [node]);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Code, Copy } from 'lucide-react';
 import { ComponentMeta } from '../../types/component';
 import { useTheme } from '../../hooks/useTheme';
@@ -9,6 +9,10 @@ interface ComponentCardProps {
 
 export default function ComponentCard({ component }: ComponentCardProps) {
   const { theme } = useTheme();
+
+  useEffect(() => {
+    console.log('Component:', component);
+  }, [component]);
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">

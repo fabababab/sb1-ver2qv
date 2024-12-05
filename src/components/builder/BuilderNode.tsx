@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { ChevronRight, ChevronDown, Trash, Edit, GripVertical, Component } from 'lucide-react';
@@ -29,6 +29,10 @@ export default function BuilderNode({ node, depth }: Props) {
   };
 
   const component = components.find(c => c.id === node.componentId);
+
+  useEffect(() => {
+    console.log('Node:', node);
+  }, [node]);
 
   return (
     <>

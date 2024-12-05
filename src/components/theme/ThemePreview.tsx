@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Theme } from '../../types/component';
 
 interface ThemePreviewProps {
@@ -6,6 +6,10 @@ interface ThemePreviewProps {
 }
 
 export default function ThemePreview({ theme }: ThemePreviewProps) {
+  useEffect(() => {
+    console.log('Theme:', theme);
+  }, [theme]);
+
   return (
     <div className="space-y-6 p-6 bg-white rounded-lg border border-gray-200">
       <h3 className="text-lg font-semibold">Theme Preview</h3>

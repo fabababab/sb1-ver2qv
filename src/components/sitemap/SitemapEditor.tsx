@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSitemapStore } from '../../stores/sitemapStore';
 import { useComponents } from '../../hooks/useComponents';
 
@@ -8,6 +8,10 @@ export default function SitemapEditor() {
 
   const selectedNode = nodes.find(node => node.id === selectedNodeId);
   if (!selectedNode) return null;
+
+  useEffect(() => {
+    console.log('Selected node:', selectedNode);
+  }, [selectedNode]);
 
   return (
     <div className="p-4 space-y-4">

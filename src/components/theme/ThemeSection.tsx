@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
 interface ThemeSectionProps {
@@ -17,6 +17,10 @@ export default function ThemeSection({
   defaultExpanded = false 
 }: ThemeSectionProps) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+
+  useEffect(() => {
+    console.log('Expanded state:', isExpanded);
+  }, [isExpanded]);
 
   return (
     <section className="border border-gray-200 rounded-lg overflow-hidden bg-white">

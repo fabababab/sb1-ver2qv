@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Plus, Download, Upload } from 'lucide-react';
 import { useSitemapStore } from '../../stores/sitemapStore';
 
 export default function BuilderToolbar() {
   const { nodes, setNodes, addNode } = useSitemapStore();
+
+  useEffect(() => {
+    console.log('Nodes:', nodes);
+  }, [nodes]);
 
   const handleExport = () => {
     const dataStr = JSON.stringify(nodes, null, 2);

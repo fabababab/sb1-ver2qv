@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Filter } from 'lucide-react';
 import ComponentCard from './ComponentCard';
 import { ComponentMeta } from '../../types/component';
@@ -15,6 +15,10 @@ export default function ComponentGallery() {
     const matchesCategory = selectedCategory === 'all' || component.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
+  useEffect(() => {
+    console.log('Filtered components:', filteredComponents);
+  }, [filteredComponents]);
 
   return (
     <div className="h-full overflow-hidden flex flex-col bg-gray-50">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Download, Upload } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme';
 import ThemeControls from './ThemeControls';
@@ -34,6 +34,10 @@ export default function ThemeManager() {
       reader.readAsText(file);
     }
   };
+
+  useEffect(() => {
+    console.log('Theme:', theme);
+  }, [theme]);
 
   return (
     <div className="h-full overflow-hidden bg-gray-50">

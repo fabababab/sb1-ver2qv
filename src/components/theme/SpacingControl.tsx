@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Theme } from '../../types/component';
 
 interface SpacingControlProps {
@@ -8,6 +8,10 @@ interface SpacingControlProps {
 }
 
 export default function SpacingControl({ label, value, onChange }: SpacingControlProps) {
+  useEffect(() => {
+    console.log('Spacing value:', value);
+  }, [value]);
+
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between">

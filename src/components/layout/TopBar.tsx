@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Bell, Plus, ChevronDown } from 'lucide-react';
 import { User, Notification } from '../../types';
 
@@ -21,6 +21,10 @@ const notifications: Notification[] = [
 export default function TopBar() {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
+
+  useEffect(() => {
+    console.log('Show user menu state:', showUserMenu);
+  }, [showUserMenu]);
 
   return (
     <div className="h-14 bg-white border-b border-gray-200 flex items-center justify-between px-4">

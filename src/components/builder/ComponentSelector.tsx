@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import { useSitemapStore } from '../../stores/sitemapStore';
 import { useComponents } from '../../hooks/useComponents';
@@ -18,6 +18,10 @@ export default function ComponentSelector() {
       updateNode(selectedNodeId, { componentId });
     }
   };
+
+  useEffect(() => {
+    console.log('Selected component:', selectedNodeId);
+  }, [selectedNodeId]);
 
   return (
     <div className="flex-1 border-t border-gray-200 overflow-hidden flex flex-col">

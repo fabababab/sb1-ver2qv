@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { 
   Library, 
   Palette, 
@@ -35,6 +35,10 @@ const stages = [
 ];
 
 export default function TopNavigation({ onNavigate }: TopNavigationProps) {
+  useEffect(() => {
+    console.log('Current path:', window.location.pathname);
+  }, [window.location.pathname]);
+
   return (
     <div className="h-16 bg-white border-b border-gray-200">
       <div className="h-full flex items-center px-4 gap-8">

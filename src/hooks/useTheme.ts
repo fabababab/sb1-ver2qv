@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Theme } from '../types/component';
 
 const defaultTheme: Theme = {
@@ -112,6 +112,10 @@ export function useTheme() {
   const updateTheme = (newTheme: Partial<Theme>) => {
     setTheme((prev) => ({ ...prev, ...newTheme }));
   };
+
+  useEffect(() => {
+    console.log('Theme:', theme);
+  }, [theme]);
 
   return {
     theme,

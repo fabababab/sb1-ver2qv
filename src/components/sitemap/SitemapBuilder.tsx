@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { DndContext, DragEndEvent, closestCenter } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { useSitemapStore } from '../../stores/sitemapStore';
@@ -9,6 +9,10 @@ import SitemapEditor from './SitemapEditor';
 
 export default function SitemapBuilder() {
   const { nodes, setNodes, selectedNodeId } = useSitemapStore();
+
+  useEffect(() => {
+    console.log('Nodes:', nodes);
+  }, [nodes]);
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;

@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Play, Pause, RefreshCw } from 'lucide-react';
 
 export default function PreviewPanel() {
+  const [previewState, setPreviewState] = useState('paused');
+
+  useEffect(() => {
+    console.log('Preview state:', previewState);
+  }, [previewState]);
+
   return (
     <div className="flex-1 flex flex-col h-full">
       <div className="h-12 border-b border-gray-200 flex items-center justify-between px-4">
         <div className="flex items-center gap-2">
-          <button className="p-2 hover:bg-gray-100 rounded-lg">
+          <button className="p-2 hover:bg-gray-100 rounded-lg" onClick={() => setPreviewState('playing')}>
             <Play size={18} className="text-green-600" />
           </button>
-          <button className="p-2 hover:bg-gray-100 rounded-lg">
+          <button className="p-2 hover:bg-gray-100 rounded-lg" onClick={() => setPreviewState('paused')}>
+            <Pause size={18} className="text-red-600" />
+          </button>
+          <button className="p-2 hover:bg-gray-100 rounded-lg" onClick={() => setPreviewState('refreshing')}>
             <RefreshCw size={18} className="text-gray-600" />
           </button>
         </div>

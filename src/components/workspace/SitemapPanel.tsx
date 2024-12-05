@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FolderTree, File, Plus } from 'lucide-react';
 
 export default function SitemapPanel() {
+  const [sitemap, setSitemap] = React.useState([
+    { id: 1, title: 'Home', children: [{ id: 2, title: 'About' }, { id: 3, title: 'Contact' }] },
+  ]);
+
+  useEffect(() => {
+    console.log('Sitemap:', sitemap);
+  }, [sitemap]);
+
   return (
     <div className="h-full bg-white border-r border-gray-200 w-64">
       <div className="p-4 border-b border-gray-200">

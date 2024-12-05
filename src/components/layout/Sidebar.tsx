@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   LayoutDashboard, 
   Library, 
@@ -31,6 +31,10 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
+
+  useEffect(() => {
+    console.log('Collapsed state:', collapsed);
+  }, [collapsed]);
 
   return (
     <div className={`bg-white border-r border-gray-200 h-screen transition-all duration-300 ${

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSitemapStore } from '../../stores/sitemapStore';
 import { useComponents } from '../../hooks/useComponents';
 
@@ -10,6 +10,10 @@ export default function SitemapPreview() {
   const selectedComponent = selectedNode?.componentId 
     ? components.find(c => c.id === selectedNode.componentId)
     : null;
+
+  useEffect(() => {
+    console.log('Selected component:', selectedComponent);
+  }, [selectedComponent]);
 
   return (
     <div className="h-full flex flex-col">

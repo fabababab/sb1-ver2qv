@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { SitemapNode, SitemapStore } from '../types/sitemap';
+import { useEffect } from 'react';
 
 const generateId = () => Math.random().toString(36).substr(2, 9);
 
@@ -81,3 +82,7 @@ export const useSitemapStore = create<SitemapStore>((set) => ({
     return { nodes: toggleNode(state.nodes) };
   }),
 }));
+
+useEffect(() => {
+  console.log('Nodes:', useSitemapStore.getState().nodes);
+}, [useSitemapStore.getState().nodes]);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopNavigation from './components/layout/TopNavigation';
 import TopBar from './components/layout/TopBar';
 import ThemeManager from './components/theme/ThemeManager';
@@ -14,6 +14,10 @@ function App() {
     const view = path.replace('/', '') as View;
     setCurrentView(view || 'components');
   };
+
+  useEffect(() => {
+    console.log(`Current view: ${currentView}`);
+  }, [currentView]);
 
   return (
     <div className="flex flex-col h-screen bg-gray-50">
